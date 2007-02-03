@@ -1,0 +1,10 @@
+/bin/
+/obj/
+.vs/
+*.exe
+*.dll
+*.lib
+*.pdb
+*.obj
+*.aps
+*.user
