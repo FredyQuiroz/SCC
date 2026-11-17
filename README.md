@@ -54,6 +54,10 @@ Use the repository’s Issues to report build problems and reproducible issues w
 
 The February 2007 snapshot recovers the original dialog. The 2026 reconstruction converted the Win32 project, moved the database credentials to environment variables and adapted the closest complete shared-library sources found. The earlier archives lack the Conector query and message classes used by this version. The demo schema comes from the SCC archive and the records were created for the test.
 
+### Document references
+
+The customer ID connects each invoice row to a customer. The operation uses the service number as the key when reopening an existing record. `examples/schema.sql` defines both tables and `examples/fictional-data.sql` loads two example rows.
+
 ### License
 
 The [MIT License](LICENSE) covers the project contributions. See [third-party notices](THIRD-PARTY-NOTICES.md) for the other components.
@@ -112,6 +116,10 @@ Usa la sección Issues para reportar problemas de compilación o fallos reproduc
 ### Historia
 
 La versión de febrero de 2007 recupera el diálogo original. La reconstrucción de 2026 convirtió el proyecto Win32, pasó las credenciales a variables de entorno y adaptó el respaldo completo de bibliotecas compartidas más cercano que se encontró. Los respaldos anteriores carecen de las clases de consultas y mensajes de Conector que usa esta versión. El esquema de la demostración procede del respaldo de SCC y los registros se crearon para la prueba.
+
+### Referencias de documentos
+
+El identificador de cliente relaciona cada factura con un cliente. La operación usa el número de servicio como clave al abrir un registro existente. `examples/schema.sql` define ambas tablas y `examples/fictional-data.sql` carga dos filas de ejemplo.
 
 ### Licencia
 
