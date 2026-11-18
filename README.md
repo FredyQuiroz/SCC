@@ -40,7 +40,7 @@ Select **Todos** to display two fictional invoices. Choose `Cliente Demo Azul`, 
 
 ### Project structure
 
-`src/SCC/SCCDlg.cpp` implements the dialog. The solution at the root pairs the converted projects with the app. `src/SCC/SCC.sln` preserves the historical solution. `vendor/` contains the shared-library adaptations. `compat/tmschema.h` connects the older theme header name to the current Windows SDK. `examples/mysql-demo.ps1` starts the test database.
+`src/SCC/SCCDlg.cpp` implements the dialog. The solution at the root pairs the converted projects with the app. `src/SCC/SCC.sln` preserves the historical solution. `vendor/` contains the shared-library adaptations. `compat/tmschema.h` connects the older theme header name to the current Windows SDK. `examples/mysql-demo.ps1` starts the test database. `docs/media/` contains captures from the example.
 
 ### Contributing
 
@@ -57,6 +57,18 @@ The February 2007 snapshot recovers the original dialog. The 2026 reconstruction
 ### Document references
 
 The customer ID connects each invoice row to a customer. The operation uses the service number as the key when reopening an existing record. `examples/schema.sql` defines both tables and `examples/fictional-data.sql` loads two example rows.
+
+### Verification
+
+On November 23, 2026, the first verification built separate exports of the Win32 reconstruction from that date with MSBuild 18.11.1-1.26513.3 and the x64 host tools. Only the fictional MySQL instance on loopback was used. The operator listed two fictional invoices, registered another, and listed all three. MySQL confirmed the four saved values. A second verification on November 24 rebuilt and exercised that earlier reconstruction. The archived screenshots show the separate November 18 demonstration.
+
+![Three fictional invoices after saving a third one](docs/media/invoices.png)
+
+The report includes invoice 81003.
+
+![Opening the list, entering a fictional invoice and showing it saved](docs/media/save-invoice.gif)
+
+The application starts with two records and then shows the one entered in the form.
 
 ### License
 
@@ -103,7 +115,7 @@ Pulsa **Todos** para ver dos facturas ficticias. Elige `Cliente Demo Azul`, escr
 
 ### Estructura del proyecto
 
-`src/SCC/SCCDlg.cpp` implementa el diálogo. La solución de la raíz integra los proyectos convertidos de la aplicación y sus bibliotecas. `src/SCC/SCC.sln` conserva la solución histórica. `vendor/` contiene las adaptaciones de las bibliotecas. `compat/tmschema.h` conecta el encabezado antiguo de temas con el SDK actual de Windows. `examples/mysql-demo.ps1` inicia la base de prueba.
+`src/SCC/SCCDlg.cpp` implementa el diálogo. La solución de la raíz integra los proyectos convertidos de la aplicación y sus bibliotecas. `src/SCC/SCC.sln` conserva la solución histórica. `vendor/` contiene las adaptaciones de las bibliotecas. `compat/tmschema.h` conecta el encabezado antiguo de temas con el SDK actual de Windows. `examples/mysql-demo.ps1` inicia la base de prueba. `docs/media/` contiene las capturas del ejemplo.
 
 ### Contribuir
 
@@ -120,6 +132,18 @@ La versión de febrero de 2007 recupera el diálogo original. La reconstrucción
 ### Referencias de documentos
 
 El identificador de cliente relaciona cada factura con un cliente. La operación usa el número de servicio como clave al abrir un registro existente. `examples/schema.sql` define ambas tablas y `examples/fictional-data.sql` carga dos filas de ejemplo.
+
+### Verificación
+
+La primera verificación del 23 de noviembre de 2026 compiló copias separadas de la reconstrucción Win32 de esa fecha, con MSBuild 18.11.1-1.26513.3 y las herramientas anfitrionas x64. Se usó la instancia ficticia de MySQL en loopback. El operador listó dos facturas ficticias, registró otra y volvió a listar las tres. MySQL confirmó los cuatro valores guardados. La segunda verificación, del 24 de noviembre, recompiló y probó esa reconstrucción anterior. Las capturas archivadas muestran la demostración del 18 de noviembre.
+
+![Tres facturas ficticias tras guardar la tercera](docs/media/invoices.png)
+
+El listado incluye la factura 81003.
+
+![Apertura del listado, registro de una factura ficticia y consulta después de guardar](docs/media/save-invoice.gif)
+
+La aplicación empieza con dos registros y luego muestra el que se introdujo en el formulario.
 
 ### Licencia
 
