@@ -36,6 +36,10 @@ Copy-Item "$env:MySqlSdkDir\libmysql.dll" .\bin\Release\
 
 ### Usage
 
+SCC reads SCC_DB_HOST, SCC_DB_USER, SCC_DB_PASSWORD and SCC_DB_PORT from the process environment. If one is unset, its own default is used: localhost, root, an empty password and port 3306, respectively. The original schema name is scc.
+
+The Docker example sets all four values explicitly. It uses another local port because MySQL already occupies port 3306 on the test computer. The launcher reads the port Docker allocated and supplies it through SCC_DB_PORT. The example uses a fictional user, a generated password and only synthetic invoices.
+
 Select **Todos** to display two fictional invoices. Choose `Cliente Demo Azul`, enter invoice `81003`, service `82003` and delivery slip `83003`, then select **Aceptar**. Select **Todos** again to see the new row.
 
 ### Project structure
@@ -79,7 +83,7 @@ The [MIT License](LICENSE) covers the project contributions. See [third-party no
 ## Español
 
 
-Legado de una aplicación Win32 para registrar y consultar facturas, servicios y comprobantes de entrega
+Aplicación Win32 legada para registrar y consultar facturas, números de servicio y remisiones
 
 > [!WARNING]
 > **Estado: legado.** Este archivo contiene una ventana Win32 y un ejemplo en Docker con registros ficticios.
@@ -110,6 +114,10 @@ Copy-Item "$env:MySqlSdkDir\libmysql.dll" .\bin\Release\
 ```
 
 ### Uso
+
+SCC lee SCC_DB_HOST, SCC_DB_USER, SCC_DB_PASSWORD y SCC_DB_PORT del entorno del proceso. Cada variable sin definir toma su valor original: localhost, root, contraseña vacía y puerto 3306, respectivamente. El nombre del esquema es scc.
+
+La demo de Docker define las cuatro variables. Usa otro puerto local porque MySQL ocupa el 3306 en el equipo de prueba. El lanzador obtiene el puerto asignado por Docker y lo pasa en SCC_DB_PORT. El ejemplo usa un usuario ficticio, una contraseña generada y facturas inventadas.
 
 Pulsa **Todos** para ver dos facturas ficticias. Elige `Cliente Demo Azul`, escribe factura `81003`, servicio `82003` y remisión `83003`, y pulsa **Aceptar**. Pulsa **Todos** de nuevo para ver la fila nueva.
 
