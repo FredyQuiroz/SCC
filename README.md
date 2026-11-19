@@ -36,6 +36,10 @@ Copy-Item "$env:MySqlSdkDir\libmysql.dll" .\bin\Release\
 
 ### Usage
 
+SCC reads SCC_DB_HOST, SCC_DB_USER, SCC_DB_PASSWORD and SCC_DB_PORT from the process environment. If one is unset, its own default is used: localhost, root, an empty password and port 3306, respectively. The original schema name is scc.
+
+The Docker example sets all four values explicitly. It uses another local port because MySQL already occupies port 3306 on the test computer. The launcher reads the port Docker allocated and supplies it through SCC_DB_PORT. The example uses a fictional user, a generated password and only synthetic invoices.
+
 Select **Todos** to display two fictional invoices. Choose `Cliente Demo Azul`, enter invoice `81003`, service `82003` and delivery slip `83003`, then select **Aceptar**. Select **Todos** again to see the new row.
 
 ### Project structure
@@ -60,7 +64,7 @@ The customer ID connects each invoice row to a customer. The operation uses the 
 
 ### Verification
 
-On November 18, 2026, each commit built on Windows 11 Pro build 26300 using Visual Studio Community 2026 18.10.3, MSBuild 18.10.1.42706, MSVC v145 14.51.36231, Windows SDK 10.0.26100.0. The command above rebuilt its own `SCC.sln` with Win32 Release and code 0. With Docker Engine 29.9.2, a MySQL 8.4.13 loopback server and the 5.0.16 client, the executable listed two seeded invoices and inserted a third. The server returned all four expected values. SCC closed from its dialog with code 2.
+On November 18, 2026, the three preceding snapshots compiled from separate exports with MSBuild 18.10.1.42706. On November 19, the new connection-defaults revision built in Win32 Release with Visual Studio MSBuild amd64 18.11.1.51303, MSVC v145 14.51.36263 and Windows SDK 10.0.26100.0 on Windows 11 Pro build 26300. The command used the same SDK paths as Getting started and added /p:PreferredToolArchitecture=x64. With Docker Engine 29.9.2, MySQL 8.4.13 and the Win32 5.0.16 client, the tested application listed two fictional invoices, registered another and listed all three. MySQL returned the four saved values. The dialog exited with code 2. The figures preserve the record of the original November 18 verification. The November 19 run repeated the same workflow using the updated connection settings. The historical defaults were checked against the source; this test used only the disposable server.
 
 ![Three fictional invoices after saving a third one](docs/media/invoices.png)
 
@@ -79,7 +83,7 @@ The [MIT License](LICENSE) covers the project contributions. See [third-party no
 ## Español
 
 
-Legado de una aplicación Win32 para registrar y consultar facturas, servicios y comprobantes de entrega
+Aplicación Win32 legada para registrar y consultar facturas, números de servicio y remisiones
 
 > [!WARNING]
 > **Estado: legado.** Este archivo contiene una ventana Win32 y un ejemplo en Docker con registros ficticios.
@@ -111,6 +115,10 @@ Copy-Item "$env:MySqlSdkDir\libmysql.dll" .\bin\Release\
 
 ### Uso
 
+SCC lee SCC_DB_HOST, SCC_DB_USER, SCC_DB_PASSWORD y SCC_DB_PORT del entorno del proceso. Cada variable sin definir toma su valor original: localhost, root, contraseña vacía y puerto 3306, respectivamente. El nombre del esquema es scc.
+
+La demo de Docker define las cuatro variables. Usa otro puerto local porque MySQL ocupa el 3306 en el equipo de prueba. El lanzador obtiene el puerto asignado por Docker y lo pasa en SCC_DB_PORT. El ejemplo usa un usuario ficticio, una contraseña generada y facturas inventadas.
+
 Pulsa **Todos** para ver dos facturas ficticias. Elige `Cliente Demo Azul`, escribe factura `81003`, servicio `82003` y remisión `83003`, y pulsa **Aceptar**. Pulsa **Todos** de nuevo para ver la fila nueva.
 
 ### Estructura del proyecto
@@ -135,7 +143,7 @@ El identificador de cliente relaciona cada factura con un cliente. La operación
 
 ### Verificación
 
-El 18 de noviembre de 2026, cada commit compiló en Windows 11 Pro compilación 26300 con Visual Studio Community 2026 18.10.3, MSBuild 18.10.1.42706, MSVC v145 14.51.36231, Windows SDK 10.0.26100.0. El comando anterior recompiló su propia `SCC.sln` en Release Win32 y devolvió código 0. Con Docker Engine 29.9.2, un servidor MySQL 8.4.13 en la interfaz local y el cliente 5.0.16, el ejecutable mostró dos facturas de ejemplo y guardó una tercera. El servidor devolvió los cuatro valores esperados. SCC se cerró desde su diálogo con código 2.
+El 18 de noviembre de 2026, las tres versiones anteriores compilaron desde copias separadas con MSBuild 18.10.1.42706. El 19 de noviembre, la nueva revisión de conexión compiló en Release Win32 con Visual Studio MSBuild amd64 18.11.1.51303, MSVC v145 14.51.36263 y SDK de Windows 10.0.26100.0 en Windows 11 Pro compilación 26300. El comando usó las rutas de Cómo empezar y agregó /p:PreferredToolArchitecture=x64. Con Docker Engine 29.9.2, MySQL 8.4.13 y el cliente Win32 5.0.16, la aplicación mostró dos facturas ficticias, registró otra y listó las tres. MySQL devolvió los cuatro valores guardados. El diálogo cerró con código 2. Las imágenes conservan el registro de la verificación original del 18 de noviembre. La prueba del 19 repitió ese recorrido con la configuración de conexión actualizada. Los valores históricos se cotejaron con el código; en esta prueba solo se usó el servidor desechable.
 
 ![Tres facturas ficticias tras guardar la tercera](docs/media/invoices.png)
 

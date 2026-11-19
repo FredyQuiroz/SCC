@@ -120,9 +120,8 @@ BOOL CSCCDlg::OnInitDialog()
 	const char* user = getenv("SCC_DB_USER");
 	const char* password = getenv("SCC_DB_PASSWORD");
 	const char* port = getenv("SCC_DB_PORT");
-	if (host && user && password && port) {
-		m_pConector.AddDataBase("scc", user, password, host, atoi(port));
-	}
+	m_pConector.AddDataBase("scc", user ? user : "root", password ? password : "",
+		host ? host : "localhost", port ? atoi(port) : 3306);
 
 
 	m_LCReporte.InsertColumn(0, "Factura", 0, 100);
